@@ -1,0 +1,164 @@
+/* 관리자 전용. 일반 사용자 화면은 이 파일을 불러오지 않는다.
+   gotgan.css 의 색 변수(--brand, --ink, --line …)를 그대로 쓴다. */
+
+/* ── 헤더 ── */
+.adm-top{background:#152631;color:#fff;position:sticky;top:0;z-index:30}
+.adm-top-inner{max-width:1560px;margin:auto;padding:0 20px;display:flex;align-items:center;gap:20px;min-height:52px}
+.adm-brand{color:#fff;font-weight:700;font-size:17px;letter-spacing:-.03em;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.adm-brand:hover{text-decoration:none;color:#fff}
+.adm-brand svg{width:19px;height:19px}
+.adm-brand img{background:#fff;border-radius:5px;padding:2px;box-sizing:content-box}
+.adm-top .adm-right{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:13px}
+.adm-top .adm-right a{color:#A9BDC8}
+.adm-top .adm-right a:hover{color:#fff}
+.adm-who{color:#7D96A4}
+
+/* ── 메뉴 줄 ── */
+.adm-menu{background:#1E3542;border-bottom:1px solid #0E1D26;position:sticky;top:52px;z-index:29}
+.adm-menu-inner{max-width:1560px;margin:auto;padding:0 20px;display:flex;gap:2px;overflow-x:auto}
+.adm-menu a{display:inline-flex;align-items:center;gap:6px;padding:0 15px;min-height:42px;color:#B8CAD4;font-size:14px;font-weight:600;white-space:nowrap;border-bottom:2px solid transparent}
+.adm-menu a:hover{color:#fff;text-decoration:none;background:#25404F}
+.adm-menu a.active{color:#fff;border-bottom-color:#4FA3C7;background:#25404F}
+.adm-menu .cnt{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#3C5A6B;color:#DCE8EE;font-size:11px;font-weight:700}
+.adm-menu .cnt.on{background:#C0392B;color:#fff}
+
+/* ── 본문 ── */
+.adm-wrap{max-width:1560px;margin:auto;padding:20px 20px 60px}
+.adm-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:16px}
+.adm-head h1{font-size:22px;letter-spacing:-.03em}
+.adm-head .sub{margin-top:5px;font-size:13px}
+.adm-head-actions{display:flex;gap:7px;flex:none}
+
+/* ── 카드 ── */
+.adm-card{background:#fff;border:1px solid var(--line);border-radius:6px;margin-bottom:14px}
+.adm-card-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.adm-card-head h2{font-size:15px;font-weight:700}
+.adm-card-head .spacer{margin-left:auto}
+.adm-card-body{padding:16px}
+.adm-card-body.tight{padding:0}
+
+/* ── 검색 줄 ── */
+/* 검색창·몇 개씩 보기를 한 줄에 둔다 */
+.adm-filter{display:flex;gap:8px;align-items:center;flex-wrap:nowrap;position:relative}
+.adm-filter input,.adm-filter select{min-height:34px;padding:6px 10px;font-size:13px;border-radius:4px;width:auto}
+/* 너비를 고정한다. gotgan.css 의 input{width:100%} 가 더 강해서 부모 너비를 따라가다가,
+   부모 너비도 내용에 따라 정해져 새로고침 때마다 늘었다 줄었다 했다. 같은 강도(0,2,1)에 뒤에 읽혀 이긴다. */
+.adm-filter input[type=search],.adm-filter input[type=text]{width:240px;min-width:240px}
+.adm-filter label{font-size:13px;color:var(--muted);font-weight:600}
+
+/* ── 표 ── */
+.adm-scroll{overflow-x:auto}
+.adm-table{width:100%;border-collapse:collapse;font-size:13px}
+/* 표는 머리글·본문 할 것 없이 전부 가운데 정렬한다. 열마다 정렬이 달라지면
+   눈이 좌우로 흔들려서 줄을 훑기 어렵다. 숫자는 자릿수만 맞춘다. */
+.adm-table th,.adm-table td{padding:0 10px;height:38px;border-bottom:1px solid #E8EDF1;white-space:nowrap;text-align:center}
+.adm-table thead th{background:#EDF1F4;color:#3C4A55;font-weight:700;border-bottom:1px solid #D5DEE4;position:sticky;top:0}
+.adm-table tbody td{color:var(--ink)}
+.adm-table tbody tr:nth-child(2n){background:#FAFCFD}
+.adm-table tbody tr:hover{background:#F0F6FA}
+.adm-table td.num{font-variant-numeric:tabular-nums}
+.adm-table td.wrap-cell{white-space:normal;min-width:260px;max-width:460px;line-height:1.5;padding-top:8px;padding-bottom:8px}
+.adm-table .muted{color:var(--muted)}
+.adm-table tbody tr.off td{color:#93A3AE}
+/* 0 은 지우지 않고 눌러서 보여준다. 빈칸으로 두면 '0건'과 '집계 못 함'이 같아 보인다. */
+.adm-table .zero{color:#BAC6CE}
+.adm-empty{padding:54px 20px;text-align:center;color:var(--muted);font-size:14px}
+
+/* 정렬 가능한 머리글. 본문과 같이 가운데로 둔다. */
+.adm-table th.sortable{padding:0}
+.adm-table th.sortable button{width:100%;height:38px;padding:0 10px;border:0;background:transparent;font:inherit;font-weight:700;color:#3C4A55;display:inline-flex;align-items:center;justify-content:center;gap:4px}
+.adm-table th.sortable button:hover{background:#E2E9EE}
+.adm-table th.sortable .arw{font-size:10px;color:#8FA3B0}
+.adm-table th.sortable.on button{color:var(--brand)}
+.adm-table th.sortable.on .arw{color:var(--brand)}
+
+/* ── 배지 ── */
+.adm-badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:11px;font-size:12px;font-weight:700;white-space:nowrap}
+.adm-badge.wait{background:#FFF3CD;color:#856404}
+.adm-badge.done{background:#D1E7DD;color:#0F5132}
+.adm-badge.off{background:#F8D7DA;color:#842029}
+.adm-badge.info{background:#DCEBF3;color:#14556F}
+.adm-badge.gray{background:#E9EEF2;color:#495B68}
+
+/* ── 페이지 링크 ── */
+.adm-pager{display:flex;align-items:center;justify-content:center;gap:4px;padding:12px;border-top:1px solid var(--line);flex-wrap:wrap}
+.adm-pager a,.adm-pager span{min-width:32px;height:32px;padding:0 9px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:4px;font-size:13px;color:var(--ink);background:#fff}
+.adm-pager a:hover{background:#F0F6FA;text-decoration:none}
+.adm-pager .on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:700}
+.adm-pager .dots,.adm-pager .disabled{color:#A8B6C0;background:#F7F9FA}
+.adm-pager-info{font-size:12px;color:var(--muted);margin-right:8px}
+
+/* ── 상세: 라벨/값 ── */
+.adm-facts{display:grid;grid-template-columns:130px minmax(0,1fr);border-top:1px solid #E8EDF1}
+.adm-facts>dt{padding:10px 14px;background:#F6F9FA;border-bottom:1px solid #E8EDF1;font-size:13px;font-weight:700;color:#41525E}
+.adm-facts>dd{margin:0;padding:10px 14px;border-bottom:1px solid #E8EDF1;font-size:14px;overflow-wrap:anywhere}
+
+/* ── 작은 버튼 ── */
+.adm-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:34px;padding:6px 13px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink);font-size:13px;font-weight:600}
+.adm-btn:hover{background:#F4F8FA;text-decoration:none}
+.adm-btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.adm-btn.primary:hover{background:var(--brand-dark)}
+.adm-btn.danger{background:#B4392C;border-color:#B4392C;color:#fff}
+.adm-btn.danger:hover{background:#98301F}
+.adm-btn.tiny{min-height:28px;padding:3px 9px;font-size:12px}
+
+/* ── 알림 줄 ── */
+.adm-notice{display:flex;align-items:center;gap:9px;padding:11px 15px;border-radius:5px;background:#E7F3EC;border:1px solid #BEDCC9;color:#0F5132;font-size:14px;margin-bottom:14px}
+.adm-notice svg{width:18px;height:18px}
+.adm-notice.bad{background:#FCE8E6;border-color:#E7B8B2;color:#842029}
+.adm-notice .adm-btn{margin-left:auto}
+
+/* ── 심사 입력 ── */
+.adm-section-title{font-size:14px;margin:0 0 9px;color:#354650}
+.adm-section-title:not(:first-child){margin-top:20px}
+.adm-checks{display:grid;gap:7px}
+.adm-checks label,.adm-options label{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #DCE4E9;border-radius:5px;background:#FBFCFD;font-size:14px;cursor:pointer}
+.adm-checks input,.adm-options input{width:16px;height:16px;margin:0;flex:none}
+.adm-options{display:grid;grid-template-columns:repeat(3,minmax(120px,1fr));gap:8px}
+.adm-reason{margin-top:16px}
+.adm-reason textarea{width:100%;margin-top:6px}
+.adm-btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* ── 신고 선택 목록 ── */
+.adm-pick{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #E8EDF1;align-items:flex-start}
+.adm-pick:last-of-type{border-bottom:0}
+.adm-pick input{margin-top:3px}
+.adm-pick .body{flex:1;min-width:0}
+.adm-pick strong{font-size:14px}
+.adm-pick p{margin-top:4px;font-size:13px;color:#41525E;white-space:pre-wrap}
+.adm-pick small{display:block;margin-top:4px;color:var(--muted);font-size:12px}
+
+/* ── 통계 타일 ── */
+.adm-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:16px}
+.adm-tile{background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:block;color:inherit}
+.adm-tile:hover{text-decoration:none;border-color:#B4C6D2;background:#FBFDFE}
+.adm-tile .lbl{font-size:13px;color:var(--muted);font-weight:600}
+.adm-tile .num{display:block;margin-top:6px;font-size:28px;font-weight:700;letter-spacing:-.04em;color:var(--brand);font-variant-numeric:tabular-nums}
+.adm-tile .num.zero{color:#95A6B1}
+.adm-tile .num.alert{color:#B4392C}
+.adm-tile .note{display:block;margin-top:5px;font-size:12px;color:var(--muted)}
+
+/* ── 로딩 ── */
+/* '불러오는 중…' 은 검색창 왼쪽에 떠 있게 한다. 줄 안에 자리를 차지하면 탭을 누를 때마다
+   검색창을 왼쪽으로 밀었다가 되돌려서 늘었다 줄었다 하는 것처럼 보였다. */
+.adm-loading{display:none;font-size:12px;color:var(--muted);position:absolute;right:100%;margin-right:8px;white-space:nowrap}
+[wire\:loading].adm-loading{display:inline}
+
+@media(max-width:900px){
+  .adm-wrap{padding:14px 12px 40px}
+  .adm-facts{grid-template-columns:1fr}
+  .adm-facts>dt{border-bottom:0;padding-bottom:4px}
+  .adm-head{flex-direction:column;align-items:flex-start}
+  .adm-filter input[type=search],.adm-filter input[type=text]{min-width:0;flex:1}
+  .adm-options{grid-template-columns:1fr}
+}
+
+/* ── 이전 판단 알림 ── */
+.adm-prior{margin-top:16px;padding:13px 15px;border:1px solid #E3D4AE;border-left:3px solid #C9A227;border-radius:5px;background:#FDF8EC}
+.adm-prior strong{display:block;font-size:14px;color:#6B4E00}
+.adm-prior p{margin-top:5px;font-size:13px;color:#53483A}
+.adm-prior p.why{margin-top:6px;color:#3D352A;white-space:pre-wrap}
+.adm-prior small{display:block;margin-top:8px;font-size:12px;color:#7A6C55}
+
+/* 목록이 바뀌어 스크롤바가 생겼다 없어질 때 화면 너비가 7px 흔들리지 않게 자리를 미리 잡아 둔다 */
+html{scrollbar-gutter:stable}
